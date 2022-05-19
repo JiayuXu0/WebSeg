@@ -42,7 +42,7 @@ def load_image():
         controller = InteractiveController(predictor_params=param,
                                            prob_thresh=0.5)
         controller.setModel(
-            "pretrain\static_hrnet18s_ocr48_cocolvis.pdiparams")
+            "pretrain/static_hrnet18s_ocr48_cocolvis.pdiparams")
         controller.filterLargestCC(True)
         controller.addLabel(0, "default", [200, 200, 0])
         url = request.form['image_url']
