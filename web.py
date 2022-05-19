@@ -17,7 +17,7 @@ from flask import Flask, redirect, url_for, request
 from cacheout import Cache
 from eiseg.controller import InteractiveController
 app = Flask(__name__)
-cache = Cache(maxsize=256, ttl=3600, timer=time.time, default=None)
+cache = Cache(maxsize=256, ttl=600, timer=time.time, default=None)
 
 
 @app.route('/load_image', methods=['POST'])
@@ -77,4 +77,4 @@ def clear():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0")

@@ -29,6 +29,9 @@ import util
 from util.vis import draw_with_blend_and_clicks
 from models import EISegModel
 from util import LabelList
+para_path = "pretrain/static_hrnet18s_ocr48_cocolvis.pdiparams"
+model_path = para_path.replace(".pdiparams", ".pdmodel")
+model = EISegModel(model_path, para_path, False)
 
 
 class InteractiveController:
@@ -110,7 +113,7 @@ class InteractiveController:
             logger.info(f"User paddle compiled with gpu: use_gpu {use_gpu}")
             tic = time.time()
             try:
-                self.model = EISegModel(model_path, param_path, use_gpu)
+                self.model = model
                 self.reset_predictor()  # 即刻生效
             except KeyError as e:
                 return False, str(e)
