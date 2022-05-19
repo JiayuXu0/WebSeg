@@ -101,17 +101,6 @@ class InteractiveController:
 
         """
         if param_path is not None:
-            model_path = param_path.replace(".pdiparams", ".pdmodel")
-            if not osp.exists(model_path):
-                raise Exception(f"未在 {model_path} 找到模型文件")
-            if use_gpu is None:
-                if paddle.device.is_compiled_with_cuda(
-                ):  # TODO: 可以使用GPU却返回False
-                    use_gpu = True
-                else:
-                    use_gpu = False
-            logger.info(f"User paddle compiled with gpu: use_gpu {use_gpu}")
-            tic = time.time()
             try:
                 self.model = model
                 self.reset_predictor()  # 即刻生效
