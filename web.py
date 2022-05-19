@@ -52,12 +52,14 @@ def load_image():
         img = img[:, :, ::-1]
         controller.setImage(img)
         cache.set(key, controller)
+        print(key)
         return json.dumps({"ret": 0, "msg": "ok", "key": key})
 
 
 @app.route('/add_click', methods=['POST'])
 def add_click():
     if request.method == 'POST':
+        print(request.form)
         x = int(request.form['click_x'])
         y = int(request.form['click_y'])
         flag = int(request.form['flag'])
