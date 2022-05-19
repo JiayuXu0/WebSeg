@@ -3,7 +3,7 @@ Author: Jiayu Xu
 Date: 2022-05-12 16:04:57
 LastEditors: Jiayu Xu
 Description: file content
-FilePath: \EISeg\eiseg\exe.py
+FilePath: \SegService\eiseg\exe.py
 '''
 # Copyright (c) 2021 PaddlePaddle Authors. All Rights Reserved.
 #
