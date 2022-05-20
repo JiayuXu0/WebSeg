@@ -74,7 +74,8 @@ def add_click():
 @app.route('/clear', methods=['GET'])
 def clear():
     key = request.args.get('key')
-    cache.delete(key)
+    controller = cache.get(key)
+    controller.resetLastObject()
     return json.dumps({"ret": 0, "msg": "ok"})
 
 
