@@ -10,3 +10,5 @@ wget
 requests
 easydict
 scikit-image
+cacheout
+flask_cors

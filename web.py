@@ -16,7 +16,11 @@ import time
 from flask import Flask, redirect, url_for, request
 from cacheout import Cache
 from eiseg.controller import InteractiveController
+from flask_cors import CORS
+
 app = Flask(__name__)
+CORS(app, resources=r'/*', supports_credentials=True)
+
 cache = Cache(maxsize=256, ttl=600, timer=time.time, default=None)
 
 
@@ -73,6 +77,7 @@ def add_click():
 
 @app.route('/clear', methods=['GET'])
 def clear():
+    print(request.args)
     key = request.args.get('key')
     controller = cache.get(key)
     controller.resetLastObject()
